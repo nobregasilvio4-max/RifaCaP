@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RifaCap - Títulos de Capitalização</title>
+    <meta name="description" content="Títulos de Capitalização com Sorteios Mensais de R$ 50 Milhões!">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <span>RC</span>
+                        </div>
+                        <span class="logo-text">RifaCap</span>
+                    </a>
+
+                    <nav class="nav-desktop">
+                        <a href="index.html" class="nav-link">Início</a>
+                        <a href="calculadora.html" class="nav-link">Calculadora</a>
+                        <a href="regulamento.html" class="nav-link">Regulamento</a>
+                        <a href="perguntas-frequentes.html" class="nav-link">FAQ</a>
+                        <a href="contato.html" class="nav-link">Contato</a>
+                    </nav>
+                </div>
+
+                <div class="header-right">
+                    <div class="login-container">
+                        <button class="login-btn" id="loginBtn">
+                            <i class="ri-user-line"></i>
+                            <span class="login-text">Área do Cliente</span>
+                        </button>
+
+                        <div class="login-modal" id="loginModal">
+                            <div class="login-header">
+                                <h3>Acesse sua conta</h3>
+                                <p>Entre para ver seus números e sorteios</p>
+                            </div>
+
+                            <form class="login-form">
+                                <div class="form-group">
+                                    <label>E-mail</label>
+                                    <input type="email" placeholder="seu@email.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Senha</label>
+                                    <input type="password" placeholder="********">
+                                </div>
+
+                                <a href="cliente.html" class="btn-primary">Entrar</a>
+                            </form>
+
+                            <div class="login-footer">
+                                <p>Ainda não tem conta?</p>
+                                <a href="cadastro.html" class="signup-link">Cadastre-se agora</a>
+                            </div>
+
+                            <button class="close-btn" id="closeLogin">
+                                <i class="ri-close-line"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="ri-menu-line"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="nav-mobile" id="navMobile">
+                <nav>
+                    <a href="index.html" class="nav-mobile-link">Início</a>
+                    <a href="calculadora.html" class="nav-mobile-link">Calculadora</a>
+                    <a href="regulamento.html" class="nav-mobile-link">Regulamento</a>
+                    <a href="perguntas-frequentes.html" class="nav-mobile-link">FAQ</a>
+                    <a href="contato.html" class="nav-mobile-link">Contato</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">RifaCap</h1>
+                    
+                    <h2 class="hero-subtitle">
+                        Títulos de Capitalização com<br>
+                        <span class="highlight">Sorteios Mensais de R$ 50 Milhões!</span>
+                    </h2>
+                    
+                    <p class="hero-description">
+                        Compre seus números e concorra mensalmente a <strong class="highlight">R$ 50 milhões em prêmios</strong>. 
+                        Sorteios oficiais pela <strong class="highlight">Caixa Econômica Federal</strong> com total transparência!
+                    </p>
+                </div>
+
+                <div class="hero-prize">
+                    <h3>🏆 PRÓXIMO SORTEIO PELA CAIXA</h3>
+                    <p class="prize-amount">
+                        Prêmio principal de <strong>R$ 10.000.000</strong> + R$ 40 milhões em outros prêmios
+                    </p>
+                    <p class="prize-info">
+                        Sorteio oficial pela Caixa Econômica Federal • Números a partir de <span id="heroPrice">R$ 10,00</span>
+                    </p>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="calculadora.html" class="btn-cta">
+                        <i class="ri-calculator-line"></i>
+                        CALCULAR RENDIMENTOS
+                    </a>
+                    
+                    <div class="hero-badge">
+                        <div class="status-dot"></div>
+                        <span>Autorizado pela SUSEP • Sorteios pela Caixa Econômica</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="rifa-selector">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🎯 Compre Seus Títulos da Sorte</h2>
+                    <p>Cada título vale <span id="sectionPrice">R$ 10,00</span> - Quanto mais títulos, maiores suas chances!</p>
+                </div>
+
+                <div class="selector-card">
+                    <div class="card-header">
+                        <h3>Selecione quantos títulos você quer comprar</h3>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="quick-add">
+                            <button class="add-btn" data-value="5">+5<span>ADICIONAR</span></button>
+                            <button class="add-btn" data-value="10">+10<span>ADICIONAR</span></button>
+                            <button class="add-btn" data-value="20">+20<span>ADICIONAR</span></button>
+                            <button class="add-btn" data-value="30">+30<span>ADICIONAR</span></button>
+                        </div>
+
+                        <div class="selector-controls">
+                            <div class="quick-select">
+                                <div class="quick-label">Seleções rápidas:</div>
+                                <div class="quick-buttons">
+                                    <button class="quick-btn" data-value="5">5</button>
+                                    <button class="quick-btn active" data-value="10">10</button>
+                                    <button class="quick-btn" data-value="25">25</button>
+                                    <button class="quick-btn" data-value="50">50</button>
+                                    <button class="quick-btn" data-value="100">100</button>
+                                </div>
+                            </div>
+
+                            <div class="counter">
+                                <button class="counter-btn" id="decrementBtn">
+                                    <i class="ri-arrow-left-line"></i>
+                                </button>
+
+                                <div class="counter-display">
+                                    <div class="counter-number" id="selectedTitulos">10</div>
+                                    <div class="counter-label">títulos</div>
+                                </div>
+
+                                <button class="counter-btn" id="incrementBtn">
+                                    <i class="ri-arrow-right-line"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="price-summary">
+                            <div class="summary-header">
+                                <div class="summary-label">Total do seu título:</div>
+                                <div class="summary-price" id="totalPrice">R$ 100,00</div>
+                            </div>
+
+                            <div class="summary-details">
+                                <div class="detail-item">
+                                    <div class="detail-label">Valor por título</div>
+                                    <div class="detail-value green" id="unitPrice">R$ 10,00</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Suas chances</div>
+                                    <div class="detail-value blue" id="chances">10 em 100.000</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Prêmio principal</div>
+                                    <div class="detail-value purple">R$ 50M</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="btn-buy" id="buyBtn">
+                            <i class="ri-shopping-cart-line"></i>
+                            COMPRAR TÍTULOS - R$ <span id="buyPrice">100,00</span>
+                        </a>
+
+                        <div class="security-badges">
+                            <div class="badge">
+                                <i class="ri-shield-check-line green"></i>
+                                <span>100% Seguro</span>
+                            </div>
+                            <div class="badge">
+                                <i class="ri-verified-badge-line blue"></i>
+                                <span>SUSEP Autorizado</span>
+                            </div>
+                            <div class="badge">
+                                <i class="ri-calendar-line purple"></i>
+                                <span>Sorteios mensais</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Por que escolher o RifaCap?</h2>
+                    <p>O único <strong>título de capitalização</strong> que oferece sorteios mensais com prêmios milionários de forma totalmente regulamentada</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card highlight">
+                        <div class="feature-icon blue">
+                            <i class="ri-trophy-line"></i>
+                        </div>
+                        <h3>Prêmios de até R$ 50 Milhões</h3>
+                        <p>Sorteios mensais com prêmios milionários garantidos</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon gray">
+                            <i class="ri-calendar-check-line"></i>
+                        </div>
+                        <h3>Sorteios Mensais</h3>
+                        <p>Todo mês novas chances de ganhar grandes prêmios</p>
+                    </div>
+
+                    <div class="feature-card highlight">
+                        <div class="feature-icon blue">
+                            <i class="ri-ticket-line"></i>
+                        </div>
+                        <h3>Múltiplos Títulos</h3>
+                        <p>Compre quantos títulos quiser e aumente suas chances</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon gray">
+                            <i class="ri-shield-check-line"></i>
+                        </div>
+                        <h3>Autorizado pela SUSEP</h3>
+                        <p>Título de capitalização regulamentado e 100% seguro</p>
+                    </div>
+                </div>
+
+                <div class="how-it-works">
+                    <h3>🏆 Como funciona o RifaCap?</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1️⃣</div>
+                            <h4>Compre seus títulos</h4>
+                            <p>Escolha quantos títulos quer e finalize sua compra</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2️⃣</div>
+                            <h4>Aguarde o sorteio</h4>
+                            <p>Todo mês realizamos sorteios oficiais transparentes</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3️⃣</div>
+                            <h4>Receba seu prêmio</h4>
+                            <p>Prêmios são pagos direto na sua conta bancária</p>
+                        </div>
+                    </div>
+                    <p class="steps-footer">✅ Simples, seguro e regulamentado pela SUSEP!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="prize-section">
+            <div class="prize-bg"></div>
+            
+            <div class="container">
+                <div class="section-header white">
+                    <h2>🏆 <span class="highlight-yellow">R$ 50 MILHÕES</span> em Prêmios Mensais!</h2>
+                    <p><strong>Sorteios oficiais pela Caixa Econômica Federal</strong></p>
+                    <div class="important-notice">
+                        <p>💰 <span class="highlight-yellow">IMPORTANTE:</span> Seu dinheiro investido pode ser retirado em apenas <span class="highlight-yellow">90 DIAS</span>!</p>
+                    </div>
+                </div>
+
+                <div class="prizes-caixa">
+                    <div class="prizes-header">
+                        <h3>🎯 20 Números Sorteados — R$ 25 MILHÕES</h3>
+                        <p>Sorteios oficiais baseados nos números da <strong class="highlight-yellow">Caixa Econômica Federal</strong></p>
+                        <p class="sub-info">Mesma transparência e confiabilidade da loteria federal</p>
+                    </div>
+
+                    <div class="prizes-grid">
+                        <div class="prize-card gold">
+                            <div class="prize-emoji">🥇</div>
+                            <h4>1º LUGAR</h4>
+                            <div class="prize-amount">R$ 10.000.000</div>
+                            <p>10 Milhões para 1 Ganhador</p>
+                            <div class="prize-tag">Prêmio Principal</div>
+                        </div>
+
+                        <div class="prize-card purple">
+                            <div class="prize-emoji">🥈</div>
+                            <h4>2º LUGAR</h4>
+                            <div class="prize-amount">R$ 5.000.000</div>
+                            <p>5 Milhões para 1 Ganhador</p>
+                            <div class="prize-tag">Segundo Maior Prêmio</div>
+                        </div>
+
+                        <div class="prize-card blue">
+                            <div class="prize-emoji">🥉</div>
+                            <h4>3º AO 5º LUGAR</h4>
+                            <div class="prize-amount">R$ 1.000.000</div>
+                            <p>1 Milhão para cada um</p>
+                            <div class="prize-tag">3 Ganhadores</div>
+                        </div>
+
+                        <div class="prize-card green">
+                            <div class="prize-emoji">🎁</div>
+                            <h4>6º AO 20º LUGAR</h4>
+                            <div class="prize-amount">R$ 500.000</div>
+                            <p>500 mil para cada um</p>
+                            <div class="prize-tag">15 Ganhadores</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="proof-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>📱 Veja o que nossos clientes estão dizendo</h2>
+                    <p>Resultados reais de pessoas reais</p>
+                </div>
+
+                <div class="proof-content">
+                    <div class="whatsapp-mockup">
+                        <div class="whatsapp-header">
+                            <div class="whatsapp-info">
+                                <div class="whatsapp-icon">
+                                    <i class="ri-whatsapp-line"></i>
+                                </div>
+                                <div>
+                                    <div class="whatsapp-name">WhatsApp</div>
+                                    <div class="whatsapp-subtitle">RifaCap Oficial</div>
+                                </div>
+                            </div>
+                            <div class="whatsapp-time">Agora</div>
+                        </div>
+                        
+                        <div class="whatsapp-content">
+                            <div class="whatsapp-message">
+                                <div class="message-title">🎉 Resgate disponível!</div>
+                                <div class="message-amount" id="testimonialAmount">R$ 1.725,00</div>
+                                <button class="message-btn">Clique para sacar</button>
+                            </div>
+                            
+                            <div class="whatsapp-footer">
+                                Parabéns! Seu rendimento está disponível para saque.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonials">
+                        <div class="testimonial active" data-index="0">
+                            <img src="https://readdy.ai/api/search-image?query=Happy%20Brazilian%20woman%20in%20her%2030s%20smiling%20at%20camera%2C%20professional%20photo%2C%20clean%20background%2C%20positive%20expression%2C%20casual%20business%20attire%2C%20confident%20look&width=200&height=200&seq=person1&orientation=squarish" alt="Maria Silva">
+                            <div class="testimonial-content">
+                                <div class="testimonial-header">
+                                    <h4>Maria Silva</h4>
+                                    <span>• São Paulo, SP</span>
+                                    <i class="ri-verified-badge-fill"></i>
+                                </div>
+                                <p>"Coloquei R$500 e já estou com R$575 em 30 dias. Nunca pensei que rifa desse dinheiro assim!"</p>
+                                <div class="testimonial-rating">
+                                    <div class="stars">
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <span>Verificado</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial" data-index="1">
+                            <img src="https://readdy.ai/api/search-image?query=Confident%20Brazilian%20man%20in%20his%2040s%20smiling%2C%20professional%20headshot%2C%20clean%20background%2C%20business%20casual%20shirt%2C%20trustworthy%20appearance&width=200&height=200&seq=person2&orientation=squarish" alt="João Santos">
+                            <div class="testimonial-content">
+                                <div class="testimonial-header">
+                                    <h4>João Santos</h4>
+                                    <span>• Rio de Janeiro, RJ</span>
+                                    <i class="ri-verified-badge-fill"></i>
+                                </div>
+                                <p>"Eu entrei pelo rendimento e acabei ganhando no sorteio. Mudou minha vida!"</p>
+                                <div class="testimonial-rating">
+                                    <div class="stars">
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <span>Verificado</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial" data-index="2">
+                            <img src="https://readdy.ai/api/search-image?query=Professional%20Brazilian%20woman%20in%20her%2035s%2C%20warm%20smile%2C%20business%20attire%2C%20clean%20studio%20background%2C%20approachable%20and%20successful%20appearance&width=200&height=200&seq=person3&orientation=squarish" alt="Ana Costa">
+                            <div class="testimonial-content">
+                                <div class="testimonial-header">
+                                    <h4>Ana Costa</h4>
+                                    <span>• Belo Horizonte, MG</span>
+                                    <i class="ri-verified-badge-fill"></i>
+                                </div>
+                                <p>"O melhor investimento que já fiz. Rendimento garantido e ainda concorro aos prêmios!"</p>
+                                <div class="testimonial-rating">
+                                    <div class="stars">
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    <span>Verificado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <span>RC</span>
+                        </div>
+                        <span class="logo-text">RifaCap</span>
+                    </div>
+                    <p>O primeiro título de capitalização que combina sorteio e rendimento garantido.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="quem-somos.html">Quem Somos</a></li>
+                        <li><a href="perguntas-frequentes.html">Perguntas Frequentes</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="regulamento.html">Regulamento</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
+                        <li><a href="termos-uso.html">Termos de Uso</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <div class="contact-info">
+                        <p><i class="ri-phone-line"></i> (11) 99999-9999</p>
+                        <p><i class="ri-mail-line"></i> contato@rifacap.com.br</p>
+                        <p><i class="ri-map-pin-line"></i> São Paulo - SP</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-partners">
+                <h4>Órgãos Reguladores e Parceiros</h4>
+                <div class="partners-logos">
+                    <div class="partner-logo">
+                        <img src="https://readdy.ai/api/search-image?query=Caixa%20Econ%C3%B4mica%20Federal%20official%20logo%2C%20blue%20and%20yellow%20colors%2C%20clean%20white%20background%2C%20bank%20institution%20symbol%2C%20Brazilian%20federal%20bank%20emblem%2C%20professional%20corporate%20logo&width=120&height=60&seq=caixa-logo&orientation=landscape" alt="Caixa Econômica Federal">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://readdy.ai/api/search-image?query=BNDES%20official%20logo%2C%20Banco%20Nacional%20de%20Desenvolvimento%20Econ%C3%B4mico%20e%20Social%2C%20green%20corporate%20colors%2C%20Brazilian%20development%20bank%20emblem%2C%20clean%20white%20background%2C%20institutional%20logo&width=120&height=60&seq=bndes-logo&orientation=landscape" alt="BNDES">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://readdy.ai/api/search-image?query=Banco%20Central%20do%20Brasil%20official%20logo%2C%20BCB%20emblem%2C%20Brazilian%20central%20bank%20symbol%2C%20blue%20and%20gold%20colors%2C%20monetary%20authority%20logo%2C%20clean%20white%20background%2C%20institutional%20design&width=120&height=60&seq=bacen-logo&orientation=landscape" alt="Banco Central do Brasil">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://readdy.ai/api/search-image?query=SUSEP%20official%20logo%2C%20Superintend%C3%AAncia%20de%20Seguros%20Privados%2C%20Brazilian%20insurance%20regulator%20emblem%2C%20institutional%20colors%2C%20clean%20white%20background%2C%20regulatory%20authority%20symbol&width=120&height=60&seq=susep-logo&orientation=landscape" alt="SUSEP">
+                    </div>
+                    <div class="partner-logo">
+                        <img src="https://readdy.ai/api/search-image?query=Reclame%20Aqui%20official%20logo%2C%20orange%20and%20white%20colors%2C%20Brazilian%20consumer%20protection%20platform%20emblem%2C%20clean%20white%20background%2C%20customer%20service%20symbol%2C%20corporate%20logo&width=120&height=60&seq=reclame-logo&orientation=landscape" alt="Reclame Aqui">
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>CNPJ: 12.345.678/0001-90 | Razão Social: RifaCap Títulos LTDA</p>
+                    <p>© 2024 RifaCap. Todos os direitos reservados.</p>
+                </div>
+                <div class="footer-disclaimer">
+                    <p>Autorizado pela SUSEP - Superintendência de Seguros Privados</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
